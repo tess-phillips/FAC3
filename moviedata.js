@@ -33,3 +33,18 @@ let movieData = {
       cast: ["Ralph Fiennes", "F. Murray Abraham", "Mathieu Amalric"],
     },
   };
+
+for (let x in movieData) {
+    allMovieNames += movieData[x];
+  }
+
+console.log({movieData})
+
+const obj = {
+    name: "Femi",
+    status: "Junior",
+    age: 23,
+    isActive: true,
+};
+
+console.log(obj);
