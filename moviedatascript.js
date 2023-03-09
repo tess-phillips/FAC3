@@ -32,7 +32,7 @@ let movieData = {
       plot: "A writer encounters the owner of an aging high-class hotel, who tells him of his early years serving as a lobby boy in the hotel's glorious years under an exceptional concierge.",
       cast: ["Ralph Fiennes", "F. Murray Abraham", "Mathieu Amalric"],
     },
-  };
+};
 
 // let movieNameList = document.getElementById("myMovieNameList")
 // movieData.forEach((item)=>{
@@ -41,30 +41,34 @@ let movieData = {
 //   movieNameList.appendChild(li);
 // })
 
-// createTableMain()
+createTableMain()
 
-// function createTableMain() {
+function createTableMain() {
 
-//   var headers = ["Movie Name", "Rating", "Runtime", "Year"];
-//   var table = document.createElement("TABLEMAIN");  //makes a table element for the page
-      
-//   for(var i = 0; i < movieData.length; i++) {
-//       var row = table.insertRow(i);
-//       row.insertCell(0).innerHTML = movieData[i]; // was books[i].title but our list nested so will be dif
-//       // for(var j = 0; j = 5; j++) { // do we need a nested loop here? 
-//       row.insertCell(1).innerHTML = movieData[i].rating;
-//       row.insertCell(2).innerHTML = movieData[i].runtime;
-//       row.insertCell(3).innerHTML = movieData[i].year;
-//   }
+  var headers = ["Movie Name", "Rating", "Runtime", "Year"];
+  var myTable = document.createElement("TABLEMAIN");  //makes a table element for the page
+  
+  var header = myTable.createTHead();
+  var headerRow = header.insertRow(0);
+  for(var i = 0; i < headers.length; i++) {
+      headerRow.insertCell(i).innerHTML = headers[i];
+  }
+  
+  for(var i = 0; i < movieData.length; i++) {
+      var row = myTable.insertRow(i);
+      row.insertCell(0).innerHTML = movieData[i]; // was books[i].title but our list nested so will be dif
+      // for(var j = 0; j = 5; j++) { // do we need a nested loop here? 
+      row.insertCell(1).innerHTML = movieData[i].rating;
+      row.insertCell(2).innerHTML = movieData[i].runtime;
+      row.insertCell(3).innerHTML = movieData[i].year;
+  }
 
-//   var header = table.createTHead();
-//   var headerRow = header.insertRow(0);
-//   for(var i = 0; i < headers.length; i++) {
-//       headerRow.insertCell(i).innerHTML = headers[i];
-//   }
 
-//   document.body.append(table);
-// }
+  console.log(myTable)
+  document.body.append(myTable); //or appendchild?
+}
+
+
 
 // function createTablePlot() {
 
