@@ -20,10 +20,11 @@
         <a href="#actors">Actors</a>
         <a href="#plots">Movie Plots</a>
         <a href="#addMovie">Add movie</a>
-        <input type="text" placeholder="Search..">
+        <input type="text" placeholder="Search.."> <!-- might need to delete if i dont give this a meaninful function-->
       </div>
     </header>
     <main>
+      <div id="test"></div>
       <section role="region" aria-labelledby="Movies">
         <!--show all the movie names, be able to sort them by year, runtime and rating
         maybe shoule be in table and can sort by each column see https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sort_table -->
@@ -42,16 +43,23 @@
           <th onclick="sortTableNum(2,`TABLEMAIN`)">Runtime</th>
           <th onclick="sortTableNum(3,`TABLEMAIN`)">Year</th>
         </tr>
-        <p id="demo"></p>
-        <p id="x"></p>
+        <!--<p id="demo"></p>
+        <p id="x"></p>-->
       </section>
       <section role="region" aria-labelledby="actors">
-        <!-- have list of all actors, when click on them/hover it shows which movies they're in -->
+        <!-- have list of all actors, when click on them/hover it shows which movies they're in 
+        create a table of all actors and corresponding movies-->
         <h1 id="actors">Actors</h1>
       </section>
       <section role="region" aria-labelledby="plots">
         <!-- have list of all movies and all plots -->
         <h1 id="plots">Movie Plots</h1>
+        <table id="TABLEPLOT"></table>
+        <tr>
+          <!--When a header is clicked, run the sortTable function, with a parameter,
+          0 for sorting by names, 1 for sorting by country: -->
+          <th onclick="sortTableStr(0,`TABLEPLOT`)">Movie Name</th>
+        </tr>
       </section>
       </section>
       <section role="region" aria-labelledby="addMovie">
