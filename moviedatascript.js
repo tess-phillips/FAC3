@@ -41,55 +41,67 @@ let movieData = {
 //   movieNameList.appendChild(li);
 // })
 
-createTableMain()
+createTableStats()
+createTablePlot()
 
-function createTableMain() {
-
-  var headers = ["Movie Name", "Rating", "Runtime", "Year"];
-  var myTable = document.createElement("TABLEMAIN");  //makes a table element for the page
+function createTableStats() {
+    // Define the table headers
+    var headers = ["name", "runtime", "rating", "year"];
   
-  var header = myTable.createTHead();
-  var headerRow = header.insertRow(0);
-  for(var i = 0; i < headers.length; i++) {
-      headerRow.insertCell(i).innerHTML = headers[i];
+    // Create the table element
+    var table1 = document.createElement("table");
+  
+    // Create the table header row
+    var headerRow = table1.insertRow();
+    headers.forEach(headerText => {
+        var header = document.createElement("th");
+      header.textContent = headerText;
+      headerRow.appendChild(header);
+    });
+  
+    // Create the table body rows
+    Object.keys(movieData).forEach(movieName => {
+        var row = table1.insertRow();
+      row.insertCell().textContent = movieName;
+      var movie = movieData[movieName];
+      row.insertCell().textContent = movie.runtime;
+      row.insertCell().textContent = movie.rating;
+      row.insertCell().textContent = movie.year;
+    });
+  
+    // Append the table to the DOM
+    document.body.appendChild(table1);
   }
   
-  for(var i = 0; i < movieData.length; i++) {
-      var row = myTable.insertRow(i);
-      row.insertCell(0).innerHTML = movieData[i]; // was books[i].title but our list nested so will be dif
-      // for(var j = 0; j = 5; j++) { // do we need a nested loop here? 
-      row.insertCell(1).innerHTML = movieData[i].rating;
-      row.insertCell(2).innerHTML = movieData[i].runtime;
-      row.insertCell(3).innerHTML = movieData[i].year;
+function createTablePlot() {
+    // Define the table headers
+    var headers = ["name", "plot"];
+  
+    // Create the table element
+    var table = document.createElement("table");
+  
+    // Create the table header row
+    var headerRow = table.insertRow();
+    headers.forEach(headerText => {
+        var header = document.createElement("th");
+      header.textContent = headerText;
+      headerRow.appendChild(header);
+    });
+  
+    // Create the table body rows
+    Object.keys(movieData).forEach(movieName => {
+        var row = table.insertRow();
+      row.insertCell().textContent = movieName;
+      var movie = movieData[movieName];
+      row.insertCell().textContent = movie.plot;
+
+    });
+  
+    // Append the table to the DOM
+    document.body.appendChild(table);
   }
 
 
-  console.log(myTable)
-  document.body.append(myTable); //or appendchild?
-}
-
-
-
-// function createTablePlot() {
-
-//   var headers = ["Movie Name", "Plot"];
-//   var table = document.createElement("TABLEPLOT");  //makes a table element for the page
-      
-//   for(var i = 0; i < movieData.length; i++) {
-//       var row = table.insertRow(i);
-//       row.insertCell(0).innerHTML = movieData[i]; // was books[i].title but our list nested so will be dif
-//       // for(var j = 0; j = 5; j++) { // do we need a nested loop here? 
-//       row.insertCell(1).innerHTML = movieData[i].plot;
-//   }
-
-//   var header = table.createTHead();
-//   var headerRow = header.insertRow(0);
-//   for(var i = 0; i < headers.length; i++) {
-//       headerRow.insertCell(i).innerHTML = headers[i];
-//   }
-
-//   document.body.append(table);
-// }
 
 // function sortTableStr(n, tablename) { 
 //   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
