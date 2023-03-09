@@ -38,13 +38,7 @@ for (let x in movieData) {
     allMovieNames += movieData[x];
   }
 
-console.log({movieData})
+let x=1;
+document.getElementById("x").innerHTML = x;
 
-const obj = {
-    name: "Femi",
-    status: "Junior",
-    age: 23,
-    isActive: true,
-};
-
-console.log(obj);
+document.getElementById("demo").innerHTML = allMovieNames;
