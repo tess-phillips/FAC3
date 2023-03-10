@@ -70,7 +70,8 @@ function createTableStats() {
     });
   
     // Append the table to the DOM
-    document.body.appendChild(table1);
+    //table1.setAttribute("id","tableStats")
+    document.getElementById("tableStats").append(table1);
   }
   
 function createTablePlot() {
@@ -78,10 +79,10 @@ function createTablePlot() {
     var headers = ["name", "plot"];
   
     // Create the table element
-    var table = document.createElement("table");
+    var table2 = document.createElement('table');
   
     // Create the table header row
-    var headerRow = table.insertRow();
+    var headerRow = table2.insertRow();
     headers.forEach(headerText => {
         var header = document.createElement("th");
       header.textContent = headerText;
@@ -90,7 +91,7 @@ function createTablePlot() {
   
     // Create the table body rows
     Object.keys(movieData).forEach(movieName => {
-        var row = table.insertRow();
+        var row = table2.insertRow();
       row.insertCell().textContent = movieName;
       var movie = movieData[movieName];
       row.insertCell().textContent = movie.plot;
@@ -98,7 +99,8 @@ function createTablePlot() {
     });
   
     // Append the table to the DOM
-    document.body.appendChild(table);
+    //table2.setAttribute("id","tablePlot")
+    document.body.appendChild(table2);
   }
 
 
