@@ -53,6 +53,9 @@ html {
         }
       }
 
-#tableStats {
-  display: inline-block;
-}
+      th[data-filter-value] {
+        cursor: pointer;
+      }
+      th.active {
+        color: red;
+      }
