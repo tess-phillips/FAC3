@@ -34,192 +34,66 @@ let movieData = {
     },
 };
 
+createTableStats("tableStats")
+createTablePlot("tablePlot")
 
+function createTableStats(tablename){
+  // Create a table element
+  var table = $("<table></table>");
 
+  // Create table header
+  var header = $("<thead><tr><th>Movie Title</th><th>Runtime</th><th>Rating</th><th>Year</th></tr></thead>");
+  table.append(header);
 
-createTableStats()
-createTablePlot()
+  // Create table body
+  var tbody = $("<tbody></tbody>");
 
-// $('th').on('click', function(){
-//   if(typeof(header)=="number"){}
-//   sortTableNum(1,'tableStats');
-// } else {
-//   sortTableStr(0,'tableStats');
-// }    
-// add event listener
+  // Loop through each movie data and create a table row for each movie
+  $.each(movieData, function(title, data) {
+    var row = $("<tr></tr>");
+    row.append($("<td>" + title + "</td>"));
+    row.append($("<td>" + data.runtime + " mins</td>"));
+    row.append($("<td>" + data.rating + "</td>"));
+    row.append($("<td>" + data.year + "</td>"));
+    tbody.append(row);
+  });
 
-// function sortTableStr(n, tablename) { 
-//   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-//   table = document.getElementById(tablename);
-//   switching = true;
-//   // Set the sorting direction to ascending:
-//   dir = "asc";
-//   /* Make a loop that will continue until
-//   no switching has been done: */
-//   while(switching){
-//     // Start by saying: no switching is done:
-//     switching = false;
-//     rows = table.rows;
-//     /* Loop through all table rows (except the
-//     first, which contains table headers): */
-//     for (i = 1; i < (rows.length - 1); i++) {
-//       // Start by saying there should be no switching:
-//       shouldSwitch = false;
-//       /* Get the two elements you want to compare,
-//       one from current row and one from the next: */
-//       x = rows[i].getElementsByTagName("TD")[n];
-//       y = rows[i + 1].getElementsByTagName("TD")[n];
-//       /* Check if the two rows should switch place,
-//       based on the direction, asc or desc: */
-//       if (dir == "asc") {
-//         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-//           // If so, mark as a switch and break the loop:
-//           shouldSwitch = true;
-//           break;
-//         }
-//       } else if (dir == "desc") {
-//         if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-//           // If so, mark as a switch and break the loop:
-//           shouldSwitch = true;
-//           break;
-//         }
-//       }
-//     }
-//     if (shouldSwitch) {
-//       /* If a switch has been marked, make the switch
-//       and mark that a switch has been done: */
-//       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-//       switching = true;
-//       // Each time a switch is done, increase this count by 1:
-//       switchcount ++;
-//     } else {
-//       /* If no switching has been done AND the direction is "asc",
-//       set the direction to "desc" and run the while loop again. */
-//       if (switchcount == 0 && dir == "asc") {
-//         dir = "desc";
-//         switching = true;
-//       }
-//     }
-//   }
-// }
-
-// function sortTableNum(n, tablename) {
-//   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-//   table = document.getElementById(tablename);
-//   switching = true;
-//   // Set the sorting direction to ascending:
-//   dir = "asc";
-//   /*Make a loop that will continue until
-//   no switching has been done:*/
-//   while (switching) {
-//     //start by saying: no switching is done:
-//     switching = false;
-//     rows = table.rows;
-//     /*Loop through all table rows (except the
-//     first, which contains table headers):*/
-//     for (i = 1; i < (rows.length - 1); i++) {
-//       //start by saying there should be no switching:
-//       shouldSwitch = false;
-//       /*Get the two elements you want to compare,
-//       one from current row and one from the next:*/
-//       x = rows[i].getElementsByTagName("TD")[n];
-//       y = rows[i + 1].getElementsByTagName("TD")[n];
-//       //check if the two rows should switch place based on the direction, asc or desc: */
-//       if (dir == "asc") {
-//         if (Number(x.innerHTML) > Number(y.innerHTML)) {
-//           //if so, mark as a switch and break the loop:
-//           shouldSwitch = true;
-//           break;
-//         }
-//       } else if (dir == "desc") {
-//         if (Number(x.innerHTML) < Number(y.innerHTML)) {
-//           //if so, mark as a switch and break the loop:
-//           shouldSwitch = true;
-//           break;
-//         }
-//       }
-//     }
-//     if (shouldSwitch) {
-//       /*If a switch has been marked, make the switch
-//       and mark that a switch has been done:*/
-//       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-//       switching = true;
-//       // Each time a switch is done, increase this count by 1:
-//       switchcount ++;
-//     } else {
-//       /* If no switching has been done AND the direction is "asc",
-//       set the direction to "desc" and run the while loop again. */
-//       if (switchcount == 0 && dir == "asc") {
-//         dir = "desc";
-//         switching = true;
-//       }
-//     }
-//   }
-// }
-
-function createTableStats() {
-    // Define the table headers
-    var headers = ["name", "runtime", "rating", "year"];
-    
-    // Create the table element
-    var table1 = document.createElement("table");
+  table.append(tbody);
   
-    // // Create the table header row
-    var headerRow = table1.insertRow();
-    headers.forEach(headerText => {
-        var header = document.createElement("th");
-      header.textContent = headerText;
-      headerRow.appendChild(header)
-    });
-  
-    // Create the table body rows
-    Object.keys(movieData).forEach(movieName => {
-        var row = table1.insertRow();
-      row.insertCell().textContent = movieName;
-      var movie = movieData[movieName];
-      row.insertCell().textContent = movie.runtime;
-      row.insertCell().textContent = movie.rating;
-      row.insertCell().textContent = movie.year;
-    });
-  
-    // Append the table to the DOM
-    document.getElementById("tableStats").append(table1);
-    //document.getElementById("movieNameHeader").addEventListener("click",sortTableNum(0,"tableStats"))
+  // Append table to a container
+  $(`#${tablename}`).append(table);
+
+  $(document).ready(function () {
+        table.DataTable()
+  })
 }
 
+function createTablePlot(tablename){
+  // Create a table element
+  var table = $("<table></table>");
 
-function createTablePlot() {
-    // Define the table headers
-    var headers = ["name", "plot"];
-  
-    // Create the table element
-    var table2 = document.createElement('table');
-  
-    // Create the table header row
-    var headerRow = table2.insertRow();
-    headers.forEach(headerText => {
-        var header = document.createElement("th");
-      header.textContent = headerText;
-      headerRow.appendChild(header);
-    });
-  
-    // Create the table body rows
-    Object.keys(movieData).forEach(movieName => {
-        var row = table2.insertRow();
-      row.insertCell().textContent = movieName;
-      var movie = movieData[movieName];
-      row.insertCell().textContent = movie.plot;
+  // Create table header
+  var header = $("<thead><tr><th>Movie Title</th><th>Plot</th><th>Cast</th></thead>");
+  table.append(header);
 
-    });
+  // Create table body
+  var tbody = $("<tbody></tbody>");
+
+  // Loop through each movie data and create a table row for each movie
+  $.each(movieData, function(title, data) {
+    var row = $("<tr></tr>");
+    row.append($("<td>" + title + "</td>"));
+    row.append($("<td>" + data.plot + "</td>"));
+    row.append($("<td>" + data.cast.join(", ") + "</td>"));
+    tbody.append(row);
+  });
+
+  table.append(tbody);
   
-    // Append the table to the DOM
-    document.getElementById("tablePlot").append(table2);
+  // Append table to a container
+  $(`#${tablename}`).append(table);
+
+  $(document).ready(function () {
+        table.DataTable()
+  })
 }
-
-$(document).ready(function () {
-  "tablePlot".DataTable()
-})
-
-
-
-

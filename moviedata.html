@@ -22,7 +22,7 @@
         <a class="active" href="#home">Home</a>
         <a href="#movies">Movies</a>
         <a href="#actors">Actors</a>
-        <a href="#plots">Movie Plots</a>
+        <a href="#plots">Movie Plots & Cast</a>
         <a href="#addMovie">Add movie</a>
         <input type="text" placeholder="Search.." id="search-input" class="form-control"> <!-- might need to delete if i dont give this a meaninful function-->
         <!-- use this for search https://www.youtube.com/watch?v=DzXmAKdEYIs -->
@@ -31,45 +31,13 @@
     <main>
       <div id="test"></div>
       <section role="region" aria-labelledby="Movies">
-        <!--show all the movie names, be able to sort them by year, runtime and rating
-        maybe shoule be in table and can sort by each column see https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sort_table -->
         <h1 id="Movies">Movies</h1>
-        <!-- 
-          <ul id="myMovieNameList"></ul> or do different method
-        <p>Sort by</p>         use sort()
-        <button id="sortAscendingAlphabet" onclick="sort()"
-        -->
         <table id="tableStats"></table>
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-          <!-- <tr>
-            <th>Movie Name</th>
-            <th>Rating</th>
-            <th>Runtime</th>
-            <th>Year</th>
-          </tr> -->
-          <!-- <tr id="headers"> -->
-            <!-- <th onclick="sortTableStr(0,`tableStats`)">Movie Name</th>
-            <th onclick="sortTableNum(1,`tableStats`)">Rating</th>
-            <th onclick="sortTableNum(2,`tableStats`)">Runtime</th>
-            <th onclick="sortTableNum(3,`tableStats`)">Year</th> -->
-          <!-- </tr> -->
-        <!--<p id="demo"></p>
-        <p id="x"></p>-->
-      </section>
-      <section role="region" aria-labelledby="actors">
-        <!-- have list of all actors, when click on them/hover it shows which movies they're in 
-        create a table of all actors and corresponding movies-->
-        <h1 id="actors">Actors</h1>
       </section>
       <section role="region" aria-labelledby="plots">
-        <!-- have list of all movies and all plots -->
-        <h1 id="plots">Movie Plots</h1>
+        <h1 id="plots">Movie Plots & Cast</h1>
         <table id="tablePlot"></table>
-        <tr>
-          <!--When a header is clicked, run the sortTable function, with a parameter,
-          0 for sorting by names, 1 for sorting by country: -->
-          <th onclick="sortTableStr(0,`TABLEPLOT`)">Movie Name</th>
-        </tr>
       </section>
       </section>
       <section role="region" aria-labelledby="addMovie">
