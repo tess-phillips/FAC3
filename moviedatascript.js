@@ -37,9 +37,69 @@ let movieData = {
 createTableStats("tableStats")
 createTablePlot("tablePlot")
 
+const form = document.querySelector('form');
+
+let searchFieldCount = 1;
+const searchBoxes = {
+  1: document.getElementById("search-box-1")
+};
+
+const addFieldButton = document.getElementById("add-field-button");
+addFieldButton.addEventListener("click", () => {
+  searchFieldCount++;
+  const newSearchBox = document.createElement("input");
+  newSearchBox.type = "text";
+  newSearchBox.id = `search-box-${searchFieldCount}`;
+  newSearchBox.name = `cast-${searchFieldCount}`
+  newSearchBox.placeholder = "Cast Member"
+  searchBoxes[searchFieldCount] = newSearchBox;
+  const label = document.createElement("label");
+  label.innerText = `Cast Member ${searchFieldCount}:`;
+  label.htmlFor = `search-box-${searchFieldCount}`;
+  const container = document.createElement("div");
+  container.appendChild(label);
+  container.appendChild(newSearchBox);
+  addFieldButton.parentNode.insertBefore(container, addFieldButton);
+});
+
+
+form.addEventListener('submit',(e)=> {
+  e.preventDefault();
+  const fd = new FormData(form);
+  const obj = Object.fromEntries(fd);
+  // console.log("obj"+obj)
+  newMovieName = obj["Movie Name"];
+  newPlot = obj["Plot"];
+  newRuntime = obj["Runtime"];
+  newRating = obj["Rating"];
+  newYear = obj["Year"];
+  newCast = [];
+  //console.log("obj length"+obj.length)
+  for (let key in obj) {
+    if (key !== 'Movie Name' && key !== 'Plot' && key !== 'Runtime'&& key !== 'Rating'&& key !== 'Year') {
+      newCast.push(obj[key]);
+    }
+  }
+  movieData[newMovieName] = {
+    rating: newRating,
+    runtime: newRuntime,
+    year: newYear,
+    plot: newPlot,
+    cast: newCast
+  }
+
+  createTableStats("tableStats");
+  createTablePlot("tablePlot")
+})
+
+
+
 function createTableStats(tablename){
-  // Create a table element
-  var table = $("<table></table>");
+
+  // Create a table element (or replace any existing element)
+  var table = document.getElementById(tablename)
+	table.innerHTML = ''
+  table = $("<table></table>");
 
   // Create table header
   var header = $("<thead><tr><th>Movie Title</th><th>Runtime</th><th>Rating</th><th>Year</th></tr></thead>");
@@ -66,11 +126,13 @@ function createTableStats(tablename){
   $(document).ready(function () {
         table.DataTable()
   })
-}
+};
 
 function createTablePlot(tablename){
   // Create a table element
-  var table = $("<table></table>");
+  var table = document.getElementById(tablename)
+	table.innerHTML = ''
+  table = $("<table></table>");
 
   // Create table header
   var header = $("<thead><tr><th>Movie Title</th><th>Plot</th><th>Cast</th></thead>");
@@ -96,4 +158,5 @@ function createTablePlot(tablename){
   $(document).ready(function () {
         table.DataTable()
   })
-}
+};
+

@@ -21,11 +21,9 @@
       <div class="topnav">
         <a class="active" href="#home">Home</a>
         <a href="#movies">Movies</a>
-        <a href="#actors">Actors</a>
         <a href="#plots">Movie Plots & Cast</a>
         <a href="#addMovie">Add movie</a>
-        <input type="text" placeholder="Search.." id="search-input" class="form-control"> <!-- might need to delete if i dont give this a meaninful function-->
-        <!-- use this for search https://www.youtube.com/watch?v=DzXmAKdEYIs -->
+        <!-- <input type="text" placeholder="Search.." id="search-input" class="form-control"> might need to delete if i dont give this a meaninful function -->
       </div>
     </header>
     <main>
@@ -43,6 +41,46 @@
       <section role="region" aria-labelledby="addMovie">
         <!-- add movie to list -->
         <h1 id="addMovie">Add Movie</h1>
+        <form>
+            <div>
+              <label for="movie-name">Movie Name:</label>
+              <input type="text" placeholder="Movie Name" name="Movie Name"></td>
+            </div>
+            <div>
+              <label for="plot">Plot:</label>
+              <input type="text" placeholder="Plot" name="Plot"></td>
+            </div>
+            <div>
+              <label for="runtime">Runtime:</label>
+              <input type="number" placeholder="Runtime" name="Runtime"></td>
+            </div>
+            <div>
+              <label for="rating">Rating:</label>
+              <input type="number" placeholder="Rating" name="Rating" max="10" min="0"></td>
+            </div>
+            <div>
+              <label for="year">Year:</label>
+              <input type="number" placeholder="Year" name="Year" max="2023" min="1878"></td>
+            </div>
+            <!-- <div class="wrapper">
+              <div id="survey_options">
+                <label for="cast">Cast:</label><br>
+                <input for="cast" type="text" name="survey_options[]" class="survey_options" placeholder="Cast">
+              </div>
+              <div class="controls">
+                <a href="#" id="add_more_fields"><i class="fa fa-plus"></i>Add More Cast Members</a>
+                <a href="#" id="remove_fields"><i class="fa fa-plus"></i>Remove Field</a>
+              </div> -->
+              <div>
+                <label for="cast-box-1">Cast Member 1:</label>
+                <input type="text" id="cast-box-1" name="cast-1" placeholder="Cast Member">
+                <button id="add-field-button">Add field</button>
+              </div>
+            </div>
+            <div>
+              <button type="Submit">Submit</button>
+            </div>
+          </form>
       </section>
     </main>
     <footer>
