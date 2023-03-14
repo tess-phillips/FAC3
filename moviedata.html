@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Data</title>
     <link href="./moviedatastyles.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
   </head>
 <body>
     <header>
@@ -20,7 +24,8 @@
         <a href="#actors">Actors</a>
         <a href="#plots">Movie Plots</a>
         <a href="#addMovie">Add movie</a>
-        <input type="text" placeholder="Search.."> <!-- might need to delete if i dont give this a meaninful function-->
+        <input type="text" placeholder="Search.." id="search-input" class="form-control"> <!-- might need to delete if i dont give this a meaninful function-->
+        <!-- use this for search https://www.youtube.com/watch?v=DzXmAKdEYIs -->
       </div>
     </header>
     <main>
@@ -35,6 +40,13 @@
         <button id="sortAscendingAlphabet" onclick="sort()"
         -->
         <table id="tableStats"></table>
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+          <!-- <tr>
+            <th>Movie Name</th>
+            <th>Rating</th>
+            <th>Runtime</th>
+            <th>Year</th>
+          </tr> -->
           <!-- <tr id="headers"> -->
             <!-- <th onclick="sortTableStr(0,`tableStats`)">Movie Name</th>
             <th onclick="sortTableNum(1,`tableStats`)">Rating</th>

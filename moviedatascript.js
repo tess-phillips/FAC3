@@ -34,154 +34,142 @@ let movieData = {
     },
 };
 
-// let movieNameList = document.getElementById("myMovieNameList")
-// movieData.forEach((item)=>{
-//   let li = document.createElement("li");
-//   li.innerText = item;
-//   movieNameList.appendChild(li);
-// })
+
+
 
 createTableStats()
 createTablePlot()
 
-function sortTableStr(n, tablename) { 
-  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = document.getElementById(tablename);
-  switching = true;
-  // Set the sorting direction to ascending:
-  dir = "asc";
-  /* Make a loop that will continue until
-  no switching has been done: */
-  while(switching){
-    // Start by saying: no switching is done:
-    switching = false;
-    rows = table.rows;
-    /* Loop through all table rows (except the
-    first, which contains table headers): */
-    for (i = 1; i < (rows.length - 1); i++) {
-      // Start by saying there should be no switching:
-      shouldSwitch = false;
-      /* Get the two elements you want to compare,
-      one from current row and one from the next: */
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      /* Check if the two rows should switch place,
-      based on the direction, asc or desc: */
-      if (dir == "asc") {
-        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-          // If so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          break;
-        }
-      } else if (dir == "desc") {
-        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-          // If so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          break;
-        }
-      }
-    }
-    if (shouldSwitch) {
-      /* If a switch has been marked, make the switch
-      and mark that a switch has been done: */
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      // Each time a switch is done, increase this count by 1:
-      switchcount ++;
-    } else {
-      /* If no switching has been done AND the direction is "asc",
-      set the direction to "desc" and run the while loop again. */
-      if (switchcount == 0 && dir == "asc") {
-        dir = "desc";
-        switching = true;
-      }
-    }
-  }
-}
+// $('th').on('click', function(){
+//   if(typeof(header)=="number"){}
+//   sortTableNum(1,'tableStats');
+// } else {
+//   sortTableStr(0,'tableStats');
+// }    
+// add event listener
 
-function sortTableNum(n, tablename) {
-  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = document.getElementById(tablename);
-  switching = true;
-  // Set the sorting direction to ascending:
-  dir = "asc";
-  /*Make a loop that will continue until
-  no switching has been done:*/
-  while (switching) {
-    //start by saying: no switching is done:
-    switching = false;
-    rows = table.rows;
-    /*Loop through all table rows (except the
-    first, which contains table headers):*/
-    for (i = 1; i < (rows.length - 1); i++) {
-      //start by saying there should be no switching:
-      shouldSwitch = false;
-      /*Get the two elements you want to compare,
-      one from current row and one from the next:*/
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      //check if the two rows should switch place based on the direction, asc or desc: */
-      if (dir == "asc") {
-        if (Number(x.innerHTML) > Number(y.innerHTML)) {
-          //if so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          break;
-        }
-      } else if (dir == "desc") {
-        if (Number(x.innerHTML) < Number(y.innerHTML)) {
-          //if so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          break;
-        }
-      }
-    }
-    if (shouldSwitch) {
-      /*If a switch has been marked, make the switch
-      and mark that a switch has been done:*/
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      // Each time a switch is done, increase this count by 1:
-      switchcount ++;
-    } else {
-      /* If no switching has been done AND the direction is "asc",
-      set the direction to "desc" and run the while loop again. */
-      if (switchcount == 0 && dir == "asc") {
-        dir = "desc";
-        switching = true;
-      }
-    }
-  }
-}
+// function sortTableStr(n, tablename) { 
+//   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+//   table = document.getElementById(tablename);
+//   switching = true;
+//   // Set the sorting direction to ascending:
+//   dir = "asc";
+//   /* Make a loop that will continue until
+//   no switching has been done: */
+//   while(switching){
+//     // Start by saying: no switching is done:
+//     switching = false;
+//     rows = table.rows;
+//     /* Loop through all table rows (except the
+//     first, which contains table headers): */
+//     for (i = 1; i < (rows.length - 1); i++) {
+//       // Start by saying there should be no switching:
+//       shouldSwitch = false;
+//       /* Get the two elements you want to compare,
+//       one from current row and one from the next: */
+//       x = rows[i].getElementsByTagName("TD")[n];
+//       y = rows[i + 1].getElementsByTagName("TD")[n];
+//       /* Check if the two rows should switch place,
+//       based on the direction, asc or desc: */
+//       if (dir == "asc") {
+//         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+//           // If so, mark as a switch and break the loop:
+//           shouldSwitch = true;
+//           break;
+//         }
+//       } else if (dir == "desc") {
+//         if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+//           // If so, mark as a switch and break the loop:
+//           shouldSwitch = true;
+//           break;
+//         }
+//       }
+//     }
+//     if (shouldSwitch) {
+//       /* If a switch has been marked, make the switch
+//       and mark that a switch has been done: */
+//       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+//       switching = true;
+//       // Each time a switch is done, increase this count by 1:
+//       switchcount ++;
+//     } else {
+//       /* If no switching has been done AND the direction is "asc",
+//       set the direction to "desc" and run the while loop again. */
+//       if (switchcount == 0 && dir == "asc") {
+//         dir = "desc";
+//         switching = true;
+//       }
+//     }
+//   }
+// }
+
+// function sortTableNum(n, tablename) {
+//   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+//   table = document.getElementById(tablename);
+//   switching = true;
+//   // Set the sorting direction to ascending:
+//   dir = "asc";
+//   /*Make a loop that will continue until
+//   no switching has been done:*/
+//   while (switching) {
+//     //start by saying: no switching is done:
+//     switching = false;
+//     rows = table.rows;
+//     /*Loop through all table rows (except the
+//     first, which contains table headers):*/
+//     for (i = 1; i < (rows.length - 1); i++) {
+//       //start by saying there should be no switching:
+//       shouldSwitch = false;
+//       /*Get the two elements you want to compare,
+//       one from current row and one from the next:*/
+//       x = rows[i].getElementsByTagName("TD")[n];
+//       y = rows[i + 1].getElementsByTagName("TD")[n];
+//       //check if the two rows should switch place based on the direction, asc or desc: */
+//       if (dir == "asc") {
+//         if (Number(x.innerHTML) > Number(y.innerHTML)) {
+//           //if so, mark as a switch and break the loop:
+//           shouldSwitch = true;
+//           break;
+//         }
+//       } else if (dir == "desc") {
+//         if (Number(x.innerHTML) < Number(y.innerHTML)) {
+//           //if so, mark as a switch and break the loop:
+//           shouldSwitch = true;
+//           break;
+//         }
+//       }
+//     }
+//     if (shouldSwitch) {
+//       /*If a switch has been marked, make the switch
+//       and mark that a switch has been done:*/
+//       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+//       switching = true;
+//       // Each time a switch is done, increase this count by 1:
+//       switchcount ++;
+//     } else {
+//       /* If no switching has been done AND the direction is "asc",
+//       set the direction to "desc" and run the while loop again. */
+//       if (switchcount == 0 && dir == "asc") {
+//         dir = "desc";
+//         switching = true;
+//       }
+//     }
+//   }
+// }
 
 function createTableStats() {
     // Define the table headers
     var headers = ["name", "runtime", "rating", "year"];
-
-    // headers["name"].addEventListener("click",sortTableStr(0,"tableStats"));
-    // headers["runtime"].addEventListener("click",sortTableNum(1,"tableStats"));
-    // headers["rating"].addEventListener("click",sortTableNum(2,"tableStats"));
-    // headers["year"].addEventListener("click",sortTableNum(3,"tableStats"));
-    // <th onclick="sortTableStr(0,`tableStats`)">Movie Name</th>
-    // <th onclick="sortTableNum(1,`tableStats`)">Rating</th>
-    // <th onclick="sortTableNum(2,`tableStats`)">Runtime</th>
-    // <th onclick="sortTableNum(3,`tableStats`)">Year</th>
     
     // Create the table element
     var table1 = document.createElement("table");
   
-    // Create the table header row
+    // // Create the table header row
     var headerRow = table1.insertRow();
-    // var x=0;
     headers.forEach(headerText => {
         var header = document.createElement("th");
       header.textContent = headerText;
-      // if (headerText == "name"){
-      //   header.addEventListener("click",sortTableStr(x,table1));
-      // } else {
-      //   header.addEventListener("click",sortTableNum(x,table1));
-      // }
       headerRow.appendChild(header)
-      // x=x+1;
     });
   
     // Create the table body rows
@@ -197,8 +185,9 @@ function createTableStats() {
     // Append the table to the DOM
     document.getElementById("tableStats").append(table1);
     //document.getElementById("movieNameHeader").addEventListener("click",sortTableNum(0,"tableStats"))
-  }
-  
+}
+
+
 function createTablePlot() {
     // Define the table headers
     var headers = ["name", "plot"];
@@ -225,8 +214,11 @@ function createTablePlot() {
   
     // Append the table to the DOM
     document.getElementById("tablePlot").append(table2);
-  }
+}
 
+$(document).ready(function () {
+  "tablePlot".DataTable()
+})
 
 
 
