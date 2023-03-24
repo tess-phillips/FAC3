@@ -11,16 +11,9 @@
   </head>
 <body>
     <header>
-      <!-- 
-        Have bar at the top: IMDB(rename to Tess's Movies, try find yellow back ground)
-        Then search bar (all filter, search tess's movies, search icon)
-        New line: some pictures of the movies we have in flexbox (could be flicking on timeloop)
-        Button at bottom, add movie?
-      -->
       <div class="topnav">
         <a href="#Movies">Movies</a>
         <a href="#addMovie">Add movie</a>
-        <!-- <input type="text" placeholder="Search.." id="search-input" class="form-control"> might need to delete if i dont give this a meaninful function -->
       </div>
     </header>
     <main>
@@ -30,7 +23,6 @@
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
       </section>
       <section class="addMovie" role="region" aria-labelledby="addMovie">
-        <!-- add movie to list -->
         <h1 id="addMovie">Add Movie</h1>
         <div class="addMovie-wrap" id="addMovie-wrap">
           <div class="movie-html">
@@ -63,10 +55,6 @@
                   <input title="Cast member" id="cast-box-1" type="text" class="input" name="cast-1">
                   <input type="button" id="add-field-button" class="addField" value="Add another cast member">
                 </div>
-                <!-- <div class="group">
-                  <input id="check" type="checkbox" class="check" checked>
-                  <label for="check"><span class="icon"></span> Keep me Signed in</label>
-                </div> -->
                 <div class="group">
                   <input type="submit" class="button" value="Add movie">
                 </div>

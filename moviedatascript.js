@@ -35,8 +35,6 @@ let movieData = {
 };
 
 createTableStats("tableStats")
-
-// const form = document.querySelector("addMovie-htm");
 const form = document.getElementById("addMovie-htm")
 
 let castFieldCount = 1;
@@ -54,11 +52,8 @@ addFieldButton.addEventListener("click", () => {
   newCastBox.id = `cast-box-${castFieldCount}`;
   newCastBox.name = `cast-${castFieldCount}`;
   newCastBox.className = `input`;
-  // newCastBox.placeholder = "Cast Member"
   castBoxes[castFieldCount] = newCastBox;
   const label = document.createElement("label");
-  // label.innerText = `Cast Member ${castFieldCount}:`;
-  // label.htmlFor = `search-box-${castFieldCount}`;
   const container = document.createElement("div");
   container.appendChild(label);
   container.appendChild(newCastBox);
@@ -69,14 +64,12 @@ form.addEventListener('submit',(e)=> {
   e.preventDefault();
   const fd = new FormData(form);
   const obj = Object.fromEntries(fd);
-  // console.log("obj"+obj)
   newMovieName = obj["Movie Name"];
   newPlot = obj["Plot"];
   newRuntime = obj["Runtime"];
   newRating = obj["Rating"];
   newYear = obj["Year"];
   newCast = [];
-  //console.log("obj length"+obj.length)
   for (let key in obj) {
     if (key !== 'Movie Name' && key !== 'Plot' && key !== 'Runtime'&& key !== 'Rating'&& key !== 'Year') {
       newCast.push(obj[key]);
@@ -96,20 +89,13 @@ form.addEventListener('submit',(e)=> {
 
 
 function createTableStats(tablename){
-
-  // Create a table element (or replace any existing element)
   var table = document.getElementById(tablename)
 	table.innerHTML = ''
   table = $("<table></table>");
-
-  // Create table header
   var header = $("<thead><tr><th>Movie Title</th><th>Runtime</th><th>Rating</th><th>Year</th><th>Plot</th><th>Cast</th></tr></thead>");
   table.append(header);
-
-  // Create table body
   var tbody = $("<tbody></tbody>");
 
-  // Loop through each movie data and create a table row for each movie
   $.each(movieData, function(title, data) {
     var row = $("<tr></tr>");
     row.append($("<td>" + title + "</td>"));
@@ -122,9 +108,7 @@ function createTableStats(tablename){
   });
   table.append(tbody);
 
-  // Append table to a container
   $(`#${tablename}`).append(table);
-
   $(document).ready(function () {
         table.DataTable()
 
