@@ -35,7 +35,6 @@ let movieData = {
 };
 
 createTableStats("tableStats")
-createTablePlot("tablePlot")
 
 const form = document.querySelector('form');
 
@@ -89,7 +88,6 @@ form.addEventListener('submit',(e)=> {
   }
 
   createTableStats("tableStats");
-  createTablePlot("tablePlot")
 })
 
 
@@ -102,7 +100,7 @@ function createTableStats(tablename){
   table = $("<table></table>");
 
   // Create table header
-  var header = $("<thead><tr><th>Movie Title</th><th>Runtime</th><th>Rating</th><th>Year</th></tr></thead>");
+  var header = $("<thead><tr><th>Movie Title</th><th>Runtime</th><th>Rating</th><th>Year</th><th>Plot</th><th>Cast</th></tr></thead>");
   table.append(header);
 
   // Create table body
@@ -115,36 +113,6 @@ function createTableStats(tablename){
     row.append($("<td>" + data.runtime + " mins</td>"));
     row.append($("<td>" + data.rating + "</td>"));
     row.append($("<td>" + data.year + "</td>"));
-    tbody.append(row);
-  });
-
-  table.append(tbody);
-  
-  // Append table to a container
-  $(`#${tablename}`).append(table);
-
-  $(document).ready(function () {
-        table.DataTable()
-  })
-};
-
-function createTablePlot(tablename){
-  // Create a table element
-  var table = document.getElementById(tablename)
-	table.innerHTML = ''
-  table = $("<table></table>");
-
-  // Create table header
-  var header = $("<thead><tr><th>Movie Title</th><th>Plot</th><th>Cast</th></thead>");
-  table.append(header);
-
-  // Create table body
-  var tbody = $("<tbody></tbody>");
-
-  // Loop through each movie data and create a table row for each movie
-  $.each(movieData, function(title, data) {
-    var row = $("<tr></tr>");
-    row.append($("<td>" + title + "</td>"));
     row.append($("<td>" + data.plot + "</td>"));
     row.append($("<td>" + data.cast.join(", ") + "</td>"));
     tbody.append(row);
@@ -159,4 +127,3 @@ function createTablePlot(tablename){
         table.DataTable()
   })
 };
-
