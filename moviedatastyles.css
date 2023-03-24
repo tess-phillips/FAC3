@@ -1,6 +1,9 @@
 html {
     box-sizing: border-box;
-    background-color: seagreen;
+    background-image: url(https://assets.pandaily.com/uploads/2020/07/movie-theaters.jpg);
+    /* zoom: 80%; */
+    background-position:center center;
+    background-size: 100%;
   }
 
 main{
@@ -44,23 +47,33 @@ th.active {
   color: red;
 } */
 
-/* #table{
-  margin-top: 10%px;
-} */
+#tableStats{
+  background-color: #FFAAAA;
+  color:#550000;
+  margin: auto;
+  width:90%;
+}
+
+h1{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: auto;
+  width:90%;
+}
 
 .topnav {
-    background-color: lightseagreen;
+    background-color: #801515;
     overflow: hidden;
     position: fixed;
-    width: 98%;
+    width: 100%;
     z-index:10;
-    opacity: 0.8
+    /* opacity: 0.8; */
   }
   
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -69,14 +82,14 @@ th.active {
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
-  color: lightseagreen;
+  background-color: #FFAAAA;
+  color: #801515;
 }
 
 /* Add a color to the active/current link */
-.topnav a.active {
+/* .topnav a.active {
   background-color: rgba(46, 139, 86, 0.566);
-  color: white;}
+  color: black;} */
       
 /* When the screen is less than 600px wide, stack the links instead of horizontally */
 @media screen and (max-width: 600px) {
@@ -98,3 +111,164 @@ th.active {
 
 /*  */
 
+body{
+  margin:0;
+  color:#D46A6A;
+  font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.addMovie-wrap{
+  width:100%;
+  margin:auto;
+  max-width:525px;
+  min-height:700px;
+  /* height:fit-content; */
+  position:relative;
+  /* background-color: black; */
+  /* background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center; */
+  /* box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19); */
+}
+.movie-html{
+  width:100%;
+  height:100%;
+  position:absolute;
+  padding:50px 50px 40px 50px;
+  background:#801515;
+}
+.movie-html .addMovie-htm,
+.movie-html .sign-up-htm{
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  position:absolute;
+  transform:rotateY(180deg);
+  backface-visibility:hidden;
+  transition:all .4s linear;
+}
+
+/* dont think i need check */
+.movie-html .addMovie,
+.movie-html .requestMovie,
+.addMovieForm .group .check{
+  display:none;
+}
+.movie-html .tab,
+.addMovieForm .group .label,
+.addMovieForm .group .button,
+.addMovieForm .group .addField
+{
+  text-transform:uppercase;
+}
+.movie-html .tab{
+  font-size:22px;
+  margin-right:15px;
+  padding-bottom:5px;
+  margin:0 15px 10px 0;
+  display:inline-block;
+  border-bottom:2px solid transparent;
+}
+.movie-html .addMovie:checked + .tab,
+.movie-html .requestMovie:checked + .tab{
+  color:#FFAAAA;
+  border-color:#D46A6A;
+}
+.addMovieForm{
+  min-height:345px;
+  position:relative;
+  perspective:1000px;
+  transform-style:preserve-3d;
+}
+.addMovieForm .group{
+  margin-bottom:15px;
+}
+.addMovieForm .group .label,
+.addMovieForm .group .input,
+.addMovieForm .group .button,
+.addMovieForm .group .addField
+{
+  width:100%;
+  color:#D46A6A;
+  display:block;
+}
+.addMovieForm .group .input,
+.addMovieForm .group .button,
+.addMovieForm .group .addField{
+  border:none;
+  padding:15px 20px;
+  border-radius:25px;
+  background:rgba(255,255,255,.1);
+}
+/* .addMovieForm .group input[data-type="password"]{
+  text-security:circle;
+  -webkit-text-security:circle;
+} */
+.addMovieForm .group .label{
+  color:#D46A6A;
+  font-size:12px;
+}
+.addMovieForm .group .addField{
+  background:#550000b0;
+}
+.addMovieForm .group .button{
+  background:#420101;
+}
+.addMovieForm .group label .icon{
+  width:15px;
+  height:15px;
+  border-radius:2px;
+  position:relative;
+  display:inline-block;
+  background:rgba(255,255,255,.1);
+}
+.addMovieForm .group label .icon:before,
+.addMovieForm .group label .icon:after{
+  content:'';
+  width:10px;
+  height:2px;
+  background:#fff;
+  position:absolute;
+  transition:all .2s ease-in-out 0s;
+}
+.addMovieForm .group label .icon:before{
+  left:3px;
+  width:5px;
+  bottom:6px;
+  transform:scale(0) rotate(0);
+}
+.addMovieForm .group label .icon:after{
+  top:6px;
+  right:0;
+  transform:scale(0) rotate(0);
+}
+.addMovieForm .group .check:checked + label{
+  color:#fff;
+}
+.addMovieForm .group .check:checked + label .icon{
+  background:#550000;
+}
+.addMovieForm .group .check:checked + label .icon:before{
+  transform:scale(1) rotate(45deg);
+}
+.addMovieForm .group .check:checked + label .icon:after{
+  transform:scale(1) rotate(-45deg);
+}
+.movie-html .addMovie:checked + .tab + .requestMovie + .tab + .addMovieForm .addMovie-htm{
+  transform:rotate(0);
+}
+.movie-html .requestMovie:checked + .tab + .addMovieForm .sign-up-htm{
+  transform:rotate(0);
+}
+
+.hr{
+  height:2px;
+  margin:60px 0 50px 0;
+  background:rgba(255,255,255,.2);
+}
+.foot-lnk{
+  text-align:center;
+}

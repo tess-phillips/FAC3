@@ -24,7 +24,6 @@
       </div>
     </header>
     <main>
-      <div id="test"></div>
       <section role="region" aria-labelledby="Movies">
         <h1 id="Movies">Movies</h1>
         <table id="tableStats"></table>
@@ -33,39 +32,61 @@
       <section class="addMovie" role="region" aria-labelledby="addMovie">
         <!-- add movie to list -->
         <h1 id="addMovie">Add Movie</h1>
-        <form>
-          <div id="addform">
-            <div>
-              <label for="movie-name">Movie Name:</label>
-              <input type="text" placeholder="Movie Name" name="Movie Name"></td>
-            </div>
-            <div>
-              <label for="plot">Plot:</label>
-              <input type="text" placeholder="Plot" name="Plot"></td>
-            </div>
-            <div>
-              <label for="runtime">Runtime:</label>
-              <input type="number" placeholder="Runtime" name="Runtime"></td>
-            </div>
-            <div>
-              <label for="rating">Rating:</label>
-              <input type="number" placeholder="Rating" name="Rating" max="10" min="0"></td>
-            </div>
-            <div>
-              <label for="year">Year:</label>
-              <input type="number" placeholder="Year" name="Year" max="2023" min="1878"></td>
-            </div>
-            <div>
-              <label for="cast-box-1">Cast Member 1:</label>
-              <input type="text" id="cast-box-1" name="cast-1" placeholder="Cast Member">
-              <button id="add-field-button">Add field</button>
-            </div>
-            </div>
-            <div>
-              <button type="Submit">Submit</button>
+        <div class="addMovie-wrap" id="addMovie-wrap">
+          <div class="movie-html">
+            <input id="tab-1" type="radio" name="tab" class="addMovie" checked><label for="tab-1" class="tab">Add movie</label> 
+            <input id="tab-2" type="radio" name="tab" class="requestMovie"><label for="tab-2" class="tab">Request movie</label>
+            <div class="addMovieForm">
+              <form id= "addMovie-htm" class="addMovie-htm">
+                <div class="group">
+                  <label for="movie-name" class="label">Movie Name</label>
+                  <input id="name" type="text" class="input" name="Movie Name">
+                </div>
+                <div class="group">
+                  <label for="plot" class="label">Plot</label>
+                  <input id="plot" type="text" class="input" name="Plot">
+                </div>
+                <div class="group">
+                  <label for="run" class="label">Runtime</label>
+                  <input id="run" type="number" class="input" name="Runtime">
+                </div>
+                <div class="group">
+                  <label for="rat" class="label">Rating</label>
+                  <input id="rat" type="number" class="input" max="10" min="0" name="Rating">
+                </div>
+                <div class="group">
+                  <label for="year" class="label">Year</label>
+                  <input id="year" type="number" class="input" max="2023" min="1878" name="Year">
+                </div>
+                <div class="group">
+                  <label for="cast-box-1" class="label">Cast Member</label>
+                  <input title="Cast member" id="cast-box-1" type="text" class="input" name="cast-1">
+                  <input type="button" id="add-field-button" class="addField" value="Add another cast member">
+                </div>
+                <!-- <div class="group">
+                  <input id="check" type="checkbox" class="check" checked>
+                  <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                </div> -->
+                <div class="group">
+                  <input type="submit" class="button" value="Add movie">
+                </div>
+              </form>
+              <div class="sign-up-htm">
+                <div class="group">
+                  <label for="movie-name" class="label">Movie Name</label>
+                  <input id="name" type="text" class="input" name="Movie Name">
+                </div>
+                <div class="group">
+                  <label for="email" class="label">Email Address</label>
+                  <input id="email" type="text" class="input">
+                </div>
+                <div class="group">
+                  <input type="reset" class="button" value="Submit Movie">
+                </div>
+              </div>
             </div>
           </div>
-          </form>
+        </div>
       </section>
     </main>
     <footer>

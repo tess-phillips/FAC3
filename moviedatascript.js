@@ -36,31 +36,34 @@ let movieData = {
 
 createTableStats("tableStats")
 
-const form = document.querySelector('form');
+// const form = document.querySelector("addMovie-htm");
+const form = document.getElementById("addMovie-htm")
 
-let searchFieldCount = 1;
-const searchBoxes = {
-  1: document.getElementById("search-box-1")
+let castFieldCount = 1;
+const castBoxes = {
+  1: document.getElementById("cast-box-1")
 };
 
 const addFieldButton = document.getElementById("add-field-button");
 addFieldButton.addEventListener("click", () => {
-  searchFieldCount++;
-  const newSearchBox = document.createElement("input");
-  newSearchBox.type = "text";
-  newSearchBox.id = `search-box-${searchFieldCount}`;
-  newSearchBox.name = `cast-${searchFieldCount}`
-  newSearchBox.placeholder = "Cast Member"
-  searchBoxes[searchFieldCount] = newSearchBox;
+  const movieWrap = document.getElementById("addMovie-wrap")
+  castFieldCount++;
+  const newCastBox = document.createElement("input");
+  newCastBox.type = "text";
+  newCastBox.title="Cast member"
+  newCastBox.id = `cast-box-${castFieldCount}`;
+  newCastBox.name = `cast-${castFieldCount}`;
+  newCastBox.className = `input`;
+  // newCastBox.placeholder = "Cast Member"
+  castBoxes[castFieldCount] = newCastBox;
   const label = document.createElement("label");
-  label.innerText = `Cast Member ${searchFieldCount}:`;
-  label.htmlFor = `search-box-${searchFieldCount}`;
+  // label.innerText = `Cast Member ${castFieldCount}:`;
+  // label.htmlFor = `search-box-${castFieldCount}`;
   const container = document.createElement("div");
   container.appendChild(label);
-  container.appendChild(newSearchBox);
+  container.appendChild(newCastBox);
   addFieldButton.parentNode.insertBefore(container, addFieldButton);
 });
-
 
 form.addEventListener('submit',(e)=> {
   e.preventDefault();
@@ -117,13 +120,13 @@ function createTableStats(tablename){
     row.append($("<td>" + data.cast.join(", ") + "</td>"));
     tbody.append(row);
   });
-
   table.append(tbody);
-  
+
   // Append table to a container
   $(`#${tablename}`).append(table);
 
   $(document).ready(function () {
         table.DataTable()
+
   })
 };
